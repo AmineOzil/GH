@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GH"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="525"
+        Title="MainWindow" Height="728" Width="1024"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -13,10 +13,10 @@
         TextOptions.TextFormattingMode="Ideal" 
         TextOptions.TextRenderingMode="Auto"        
         Background="{DynamicResource MaterialDesignPaper}"
-        FontFamily="{DynamicResource MaterialDesignFont}">
+        FontFamily="{DynamicResource MaterialDesignFont}" ResizeMode="NoResize" MinWidth="1024" MinHeight="728">
     <Grid>
-        <materialDesign:Card Padding="32" Height="232" Margin="10,10,10,0">
-            <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Margin="0,0,0,134"><Run Text="My First "/><Run Foreground="#DDFF1313" Text="Material "/><Run Text="Design نص عربي"/></TextBlock>
+        <materialDesign:Card Padding="32" Margin="16">
+            <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}">My First Material Design App</TextBlock>
         </materialDesign:Card>
 
     </Grid>
