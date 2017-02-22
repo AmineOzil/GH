@@ -16,7 +16,7 @@
         FontFamily="{DynamicResource MaterialDesignFont}">
     <Grid>
         <materialDesign:Card Padding="32" Height="232" Margin="10,10,10,0">
-            <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Margin="0,0,0,134"><Run Text="My First "/><Run Foreground="#DDFF1313" Text="Material "/><Run Text="Design App"/></TextBlock>
+            <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Margin="0,0,0,134"><Run Text="My First "/><Run Foreground="#DDFF1313" Text="Material "/><Run Text="Design نص عربي"/></TextBlock>
         </materialDesign:Card>
 
     </Grid>
