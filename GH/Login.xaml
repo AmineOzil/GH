@@ -8,9 +8,14 @@
         mc:Ignorable="d"
         Title="Login" Height="512" Width="512" MinHeight="512" MinWidth="512" MaxHeight="512" MaxWidth="512" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="SingleBorderWindow">
     <Grid>
-        <Image x:Name="image" Source="src/images/HotelLogo.png" Height="128" MinHeight="128" MinWidth="128" VerticalAlignment="Top" Margin="0,48,189,0" HorizontalAlignment="Right" Width="128"/>
+        <Ellipse Fill="{DynamicResource SecondaryAccentBrush}" Height="128" Width="128" MinHeight="128" MinWidth="128" MaxHeight="128" MaxWidth="128" Margin="189,48,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" />
+
+
+
+
+        <Image x:Name="image" Source="src/images/HotelLogo.png" Height="128" MinHeight="128" MinWidth="128" VerticalAlignment="Top" Margin="189,48,189,0"/>
         <TextBox x:Name="NameTextBox" Height="48"  Margin="125,224,125,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" FontFamily="Roboto" FontSize="18"/>
-        <materialDesign:PackIcon Grid.Column="0" Kind="Account" Foreground="{Binding ElementName=NameTextBox, Path=BorderBrush}" Width="32" Height="32" Margin="88,240,0,0" RenderTransformOrigin="0.469,0.562"/>
+        <materialDesign:PackIcon Grid.Column="0" Kind="Account" Foreground="{Binding BorderBrush, ElementName=NameTextBox}" Width="32" Height="32" Margin="88,240,0,0" RenderTransformOrigin="0.469,0.562"/>
 
         <materialDesign:PackIcon Grid.Column="0" Kind="Key" Foreground="{Binding BorderBrush, ElementName=passwordBox}" Width="32" Height="32" Margin="88,300,0,0" RenderTransformOrigin="0.469,0.562"/>
         <PasswordBox x:Name="passwordBox" Margin="125,284,125,0" VerticalAlignment="Top" Height="48" Password="password" FontSize="18" FontFamily="Roboto"/>
