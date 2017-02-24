@@ -15,7 +15,7 @@
         <materialDesign:PackIcon Grid.Column="0" Kind="Key" Foreground="{Binding BorderBrush, ElementName=passwordBox}" Width="32" Height="32" Margin="88,300,0,0" RenderTransformOrigin="0.469,0.562"/>
         <PasswordBox x:Name="passwordBox" Margin="125,284,125,0" VerticalAlignment="Top" Height="48" Password="password" FontSize="18" FontFamily="Roboto"/>
 
-        <Button x:Name="button" Content="Login now" HorizontalAlignment="center" Margin="0,373,0,0" VerticalAlignment="Top" Width="256" Height="64" FontSize="20" FontFamily="Roboto" Click="button_Click"/>
+        <Button x:Name="button" Content="Login now " HorizontalAlignment="center" Margin="0,373,0,0" VerticalAlignment="Top" Width="256" Height="64" FontSize="20" FontFamily="Roboto" Click="button_Click"/>
 
 
 
