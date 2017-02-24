@@ -1,0 +1,15 @@
+﻿<Window x:Class="GH.Operations.Delete"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GH.Operations"
+        mc:Ignorable="d"
+        Title="Delete" Height="305.932" Width="594.068">
+    <Grid>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="213,47,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboBox_SelectionChanged" IsSynchronizedWithCurrentItem="True"/>
+        <Button x:Name="button" Content="Delete Selected user" HorizontalAlignment="Left" Margin="152,233,0,0" VerticalAlignment="Top" Width="247" Click="button_Click"/>
+        <Label x:Name="label" DataContext="{Binding ElementName=comboBox, Path=SelectedItem}" Content="{Binding SelectedValue, ElementName=comboBox}" HorizontalAlignment="Left" Margin="107,131,0,0" VerticalAlignment="Top" Width="304"/>
+
+    </Grid>
+</Window>
