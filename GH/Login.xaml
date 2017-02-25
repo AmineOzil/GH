@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="Login" Height="512" Width="512" MinHeight="512" MinWidth="512" MaxHeight="512" MaxWidth="512" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="SingleBorderWindow">
     <Grid>
-        <Ellipse Fill="{DynamicResource SecondaryAccentBrush}" Height="128" Width="128" MinHeight="128" MinWidth="128" MaxHeight="128" MaxWidth="128" Margin="189,48,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" />
+        <Ellipse Fill="#FF03A9F4" Height="128" Width="128" MinHeight="128" MinWidth="128" MaxHeight="128" MaxWidth="128" Margin="189,48,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" />
 
 
         <Image x:Name="image" Source="src/images/HotelLogo.png" Height="128" MinHeight="128" MinWidth="128" VerticalAlignment="Top" Margin="189,48,189,0"/>
