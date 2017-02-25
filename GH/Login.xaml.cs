@@ -17,6 +17,7 @@ using MaterialDesignThemes.Wpf;
 
 namespace GH
 {
+
     /// <summary>
     /// Interaction logic for Login.xaml
     /// </summary>
@@ -27,11 +28,15 @@ namespace GH
         public Login()
         {
             InitializeComponent();
+           
+
         }
 
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
+
+
 
             try
             {
@@ -42,7 +47,7 @@ namespace GH
                 DataTable Login;
 
                 //Query to Get Username & Password and Compare them In Db if Found!
-               String query = "select * from Login where username='" + this.UsernameInput.Text + "' and password='" + this.PasswordInput.Password + "'";
+                String query = "select * from Login where username='" + this.UsernameInput.Text + "' and password='" + this.PasswordInput.Password + "'";
 
                 //Put this information from DB to DataTable = login;
                 Login = db.GetDataTable(query);
@@ -58,7 +63,7 @@ namespace GH
                 string p = db.ExecuteScalar(pass);
 
                 //Test if the inputs informations NOT Match to Database Informations
-             
+
                 if (this.UsernameInput.Text != u || this.PasswordInput.Password != p)
                 {
                     MessageBox.Show("Fuck you TryCatch");
@@ -74,7 +79,7 @@ namespace GH
                         this.Close();
                     }
                 }
-                
+
             }
             catch (Exception fail)
             {
@@ -91,8 +96,27 @@ namespace GH
         private void Dialog(object sender, DialogClosingEventArgs eventArgs)
         {
 
-           
+
         }
 
+
+
+
+
+        private void PasswordInput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keyboard.IsKeyDown(Key.Enter))
+            {
+                button_Click(this, new RoutedEventArgs());
+            }
+        }
+
+        private void UsernameInput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keyboard.IsKeyDown(Key.Enter))
+            {
+                button_Click(this, new RoutedEventArgs());
+            }
+        }
     }
 }
