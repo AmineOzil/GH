@@ -59,7 +59,7 @@ namespace GH
 
                 //Test if the inputs informations NOT Match to Database Informations
              
-                if (this.UsernameInput.Text != u && this.PasswordInput.Password != p)
+                if (this.UsernameInput.Text != u || this.PasswordInput.Password != p)
                 {
                     MessageBox.Show("Fuck you TryCatch");
 
