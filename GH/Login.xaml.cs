@@ -67,7 +67,10 @@ namespace GH
                 if (this.UsernameInput.Text != u || this.PasswordInput.Password != p)
                 {
                     MessageBox.Show("Fuck you TryCatch");
-
+                    UsernameInput.Clear();
+                    PasswordInput.Clear();
+                    UsernameInput.Focus();
+                    
                 }
                 else
                 {
