@@ -6,6 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:GH"
         mc:Ignorable="d"
+       
         Title="Login" Height="512" Width="512" MinHeight="512" MinWidth="512" MaxHeight="512" MaxWidth="512" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="SingleBorderWindow">
 
     <materialDesign:DialogHost DialogClosing="Dialog" HorizontalAlignment="Center" VerticalAlignment="Center" IsOpen="{Binding IsErrorDialogOpen}" CloseOnClickAway="True">
@@ -19,7 +20,7 @@
 
 
             <Image x:Name="image" Source="src/images/HotelLogo.png" Height="128" MinHeight="128" MinWidth="128" MaxHeight="128" MaxWidth="128" VerticalAlignment="Top" Margin="192,48,192,0"/>
-            <TextBox materialDesign:HintAssist.Hint="Username"   x:Name="UsernameInput" Height="48"  Margin="125,224,125,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Roboto" FontSize="18" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+            <TextBox  Text="{Binding UserValue}" materialDesign:ValidationAssist.Suppress="True" materialDesign:HintAssist.Hint="Username"   x:Name="UsernameInput" Height="48"  Margin="125,224,125,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Roboto" FontSize="18" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
             <materialDesign:PackIcon Grid.Column="0" Kind="Account" Foreground="{Binding BorderBrush, ElementName=textbox_username}" Width="32" Height="32" Margin="88,240,0,0" RenderTransformOrigin="0.469,0.562"/>
 
             <materialDesign:PackIcon Grid.Column="0" Kind="Key" Foreground="{Binding BorderBrush, ElementName=passwordBox_password}" Width="32" Height="32" Margin="88,300,0,0" RenderTransformOrigin="0.469,0.562"/>
