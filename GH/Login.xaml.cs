@@ -62,25 +62,42 @@ namespace GH
                 string u = db.ExecuteScalar(user);
                 string p = db.ExecuteScalar(pass);
 
-                //Test if the inputs informations NOT Match to Database Informations
+                
 
-                if (this.UsernameInput.Text != u || this.PasswordInput.Password != p)
+
+
+                //Test if the inputs informations NOT Match to Database Informations ( mdified ) 
+
+                if (this.UsernameInput.Text == u)
                 {
-                    MessageBox.Show("Fuck you TryCatch");
-                    UsernameInput.Clear();
-                    PasswordInput.Clear();
-                    UsernameInput.Focus();
-                    
+                    if (this.PasswordInput.Password == p)
+                    {
+                        foreach (DataRow r in Login.Rows)
+                        {
+                            MessageBox.Show("WELCOME " + g + " " + UsernameInput.Text, "successful", MessageBoxButton.OK, MessageBoxImage.Information);
+                            MainWindow admin = new MainWindow();
+                            admin.Show();
+                            this.Close();
+                        }
+                        
+                    }
+                    else
+                    {
+                        MessageBox.Show("invalid Password ");
+                        
+                        
+                        PasswordInput.Clear();
+                        PasswordInput.Focus();
+                    }
+
+
                 }
                 else
                 {
-                    foreach (DataRow r in Login.Rows)
-                    {
-                        MessageBox.Show("WELCOME " + g + " " + UsernameInput.Text, "successful", MessageBoxButton.OK, MessageBoxImage.Information);
-                        MainWindow admin = new MainWindow();
-                        admin.Show();
-                        this.Close();
-                    }
+                    MessageBox.Show("Fuck you TryCatch Invalid Password or Username");
+                    UsernameInput.Clear();
+                    PasswordInput.Clear();
+                    UsernameInput.Focus();
                 }
 
             }
