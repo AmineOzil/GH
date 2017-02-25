@@ -68,7 +68,7 @@ namespace GH
                 {
                     foreach (DataRow r in Login.Rows)
                     {
-                        MessageBox.Show("WELCOME " + grade + " " + UsernameInput.Text, "successful", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBox.Show("WELCOME " + g + " " + UsernameInput.Text, "successful", MessageBoxButton.OK, MessageBoxImage.Information);
                         MainWindow admin = new MainWindow();
                         admin.Show();
                         this.Close();
