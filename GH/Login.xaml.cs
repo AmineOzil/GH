@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.SQLite;
 
 namespace GH
 {
@@ -19,39 +20,37 @@ namespace GH
     /// Interaction logic for Login.xaml
     /// </summary>
     public partial class Login : Window
+
     {
+        
         public Login()
         {
             InitializeComponent();
         }
 
+
         private void button_Click(object sender, RoutedEventArgs e)
         {
+
             try
             {
                 var db = new SQLiteDatabase();
+            DataTable recipe;
 
-                DataTable recipe;
+            String query = "select * from Login where username='" + this.textbox_username.Text + "' and password='" + this.passwordBox_password.Password + "'";
+            recipe = db.GetDataTable(query);
+            //select grade 
+            string que = "select grade from Login where username='" + this.textbox_username.Text + "' ";
+            string grade = db.ExecuteScalar(que);
 
-                String query = "select NAME \"Name\", DESCRIPTION \"Description\",";
-                query += "PREP_TIME \"Prep Time\", COOKING_TIME \"Cooking Time\"";
 
-                query += "from Login;";
-
-                recipe = db.GetDataTable(query);
-                // The results can be directly applied to a DataGridView control
-                
-                
-                // Or looped through for some other reason
                 foreach (DataRow r in recipe.Rows)
-                {
-                    MessageBox.Show(r["Name"].ToString());
-                    MessageBox.Show(r["Description"].ToString());
-                    MessageBox.Show(r["Prep Time"].ToString());
-                    MessageBox.Show(r["Cooking Time"].ToString());
-                }
-
-                
+            {
+                MessageBox.Show("WELCOME "+grade+" "+ textbox_username.Text, "successful", MessageBoxButton.OK, MessageBoxImage.Information);
+                MainWindow admin = new MainWindow();
+                admin.Show();
+                this.Close();
+            }
             }
             catch (Exception fail)
             {
@@ -60,6 +59,8 @@ namespace GH
                 MessageBox.Show(error);
                 this.Close();
             }
+
+
 
         }
     }
