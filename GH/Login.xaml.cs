@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.Data.SQLite;
+using MaterialDesignThemes.Wpf;
 
 namespace GH
 {
@@ -22,7 +23,7 @@ namespace GH
     public partial class Login : Window
 
     {
-        
+
         public Login()
         {
             InitializeComponent();
@@ -34,23 +35,46 @@ namespace GH
 
             try
             {
-                var db = new SQLiteDatabase();
-            DataTable recipe;
+                //Connect to Data Base
+                SQLiteDatabase db = new SQLiteDatabase();
 
-            String query = "select * from Login where username='" + this.textbox_username.Text + "' and password='" + this.passwordBox_password.Password + "'";
-            recipe = db.GetDataTable(query);
-            //select grade 
-            string que = "select grade from Login where username='" + this.textbox_username.Text + "' ";
-            string grade = db.ExecuteScalar(que);
+                //Data Table login that Have All Queries From DB
+                DataTable Login;
 
+                //Query to Get Username & Password and Compare them In Db if Found!
+               String query = "select * from Login where username='" + this.UsernameInput.Text + "' and password='" + this.PasswordInput.Password + "'";
 
-                foreach (DataRow r in recipe.Rows)
-            {
-                MessageBox.Show("WELCOME "+grade+" "+ textbox_username.Text, "successful", MessageBoxButton.OK, MessageBoxImage.Information);
-                MainWindow admin = new MainWindow();
-                admin.Show();
-                this.Close();
-            }
+                //Put this information from DB to DataTable = login;
+                Login = db.GetDataTable(query);
+
+                //select grade,  username, password
+                string grade = "select grade from Login where username='" + this.UsernameInput.Text + "' ";
+                string user = "select username from Login where username='" + this.UsernameInput.Text + "' ";
+                string pass = "select password from Login where password='" + this.PasswordInput.Password + "' ";
+
+                //Assign (grade, username, password) to local variables (g, u, p)
+                string g = db.ExecuteScalar(grade);
+                string u = db.ExecuteScalar(user);
+                string p = db.ExecuteScalar(pass);
+
+                //Test if the inputs informations NOT Match to Database Informations
+             
+                if (this.UsernameInput.Text != u && this.PasswordInput.Password != p)
+                {
+                    MessageBox.Show("Fuck you TryCatch");
+
+                }
+                else
+                {
+                    foreach (DataRow r in Login.Rows)
+                    {
+                        MessageBox.Show("WELCOME " + grade + " " + UsernameInput.Text, "successful", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MainWindow admin = new MainWindow();
+                        admin.Show();
+                        this.Close();
+                    }
+                }
+                
             }
             catch (Exception fail)
             {
@@ -63,5 +87,12 @@ namespace GH
 
 
         }
+
+        private void Dialog(object sender, DialogClosingEventArgs eventArgs)
+        {
+
+           
+        }
+
     }
 }
